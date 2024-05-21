@@ -359,13 +359,15 @@ def local_platform(name, target, spec):
 #       export_plugins: If true, all plugins in the IDE archive will be available through @intellij//:PLUGIN_NAME.
 #                      (Note that setting this to true will always download the IDE.)
 #
-def remote_platform(name, sha256, url, top_level_dir = None, export_plugins = False):
+# For AOSP: support 'plugins' list for remote platforms.
+def remote_platform(name, sha256, url, top_level_dir = None, export_plugins = False, plugins = []):
     return struct(
         name = name,
         sha256 = sha256,
         url = url,
         top_level_dir = top_level_dir,
         export_plugins = export_plugins,
+        plugins = plugins,
     )
 
 def setup_platforms(repos):
@@ -388,7 +390,10 @@ def setup_platforms(repos):
                 content += "load('" + "@" + repo.name + "//:spec.bzl" + "', " + _normalize(repo.name) + " = 'SPEC')\n"
                 targets.append((repo.name, "@" + repo.name + "//:" + repo.name, _normalize(repo.name) + ".plugin_jars.keys()"))
             else:
-                targets.append((repo.name, "@" + repo.name + "//:" + repo.name, "[]"))
+                # For AOSP: support 'plugins' list for remote platforms.
+                plugin_names = ['"' + name + '"' for name in repo.plugins]
+                plugin_list = "[" + ",".join(plugin_names) + "]"
+                targets.append((repo.name, "@" + repo.name + "//:" + repo.name, plugin_list))
         elif hasattr(repo, "target"):
             content += "load('" + repo.spec + "', " + _normalize(repo.name) + " = 'SPEC')\n"
             targets.append((repo.name, repo.target, _normalize(repo.name) + ".plugin_jars.keys()"))
