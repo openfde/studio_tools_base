@@ -45,12 +45,19 @@ import org.w3c.dom.Document
  * navigation.
  */
 class GestureBackNavDetector : ResourceXmlDetector(), SourceCodeScanner {
+    val ON_BACK_PRESED = "onBackPressed"
     override fun getApplicableReferenceNames(): List<String> = listOf("KEYCODE_BACK")
 
     private fun checkEnabledBackInvokedCallback(document: Document?): Boolean {
         val manifest = document?.documentElement
         val application = manifest?.subtag(TAG_APPLICATION)
         return application?.getAttributeNS(ANDROID_URI, ENABLE_ON_BACK_INVOKED_CALLBACK) == VALUE_TRUE
+    }
+
+    override fun visitMethod(@NonNull UMethod method) {
+        if (ON_BACK_PRESSED.equals(method.getName())) {
+            // TODO:@trambui report on this line that it's deprecated
+        }
     }
 
     override fun visitReference(
