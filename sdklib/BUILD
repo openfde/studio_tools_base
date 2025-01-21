@@ -1,5 +1,7 @@
+load("//third_party/bazel_rules/rules_java/java:java_library.bzl", "java_library")
 load("//tools/base/bazel:bazel.bzl", "iml_module")
 load("//tools/base/bazel:expand_template.bzl", "expand_template")
+load("//tools/base/bazel:jvm_import.bzl", "jvm_import")
 load("//tools/base/bazel:kotlin.bzl", "kotlin_library", "kotlin_test")
 load("//tools/base/bazel:maven.bzl", "maven_library")
 load("//tools/base/bazel:merge_archives.bzl", "merge_jars")
@@ -10,7 +12,7 @@ load(
     "RELEASE_COMMANDLINE_TOOLS_VERSION",
 )
 load("//tools/base/repository:xjc.bzl", "xsd_java_library")
-load(":sdk.bzl", "combine_licenses", "sdk_java_binary", "sdk_package")
+load(":sdk.bzl", "sdk_java_binary", "sdk_package")
 
 # managed by go/iml_to_build
 iml_module(
@@ -195,8 +197,8 @@ java_library(
 sdk_java_binary(
     name = "avdmanager",
     default_jvm_opts = {
-        "linux": "-Dcom.android.sdkmanager.toolsdir=$APP_HOME",
-        "mac": "-Dcom.android.sdkmanager.toolsdir=$APP_HOME",
+        "linux": "-Dcom.android.sdkmanager.toolsdir=\"$APP_HOME\"",
+        "mac": "-Dcom.android.sdkmanager.toolsdir=\"$APP_HOME\"",
         "win": "\"-Dcom.android.sdkmanager.toolsdir=%~dp0\\..\"",
     },
     main_class = "com.android.sdklib.tool.AvdManagerCli",
@@ -206,8 +208,8 @@ sdk_java_binary(
 sdk_java_binary(
     name = "sdkmanager",
     default_jvm_opts = {
-        "linux": "-Dcom.android.sdklib.toolsdir=$APP_HOME",
-        "mac": "-Dcom.android.sdklib.toolsdir=$APP_HOME",
+        "linux": "-Dcom.android.sdklib.toolsdir=\"$APP_HOME\"",
+        "mac": "-Dcom.android.sdklib.toolsdir=\"$APP_HOME\"",
         "win": "\"-Dcom.android.sdklib.toolsdir=%~dp0\\..\"",
     },
     main_class = "com.android.sdklib.tool.sdkmanager.SdkManagerCli",
@@ -521,8 +523,6 @@ xsd_java_library(
     xsd = "src/main/resources/xsd/sources/sdk-sites-list-6.xsd",
     xsd_deps = ["//tools/base/repository:repo-sites-common-1"],
 )
-
-load("//tools/base/bazel:jvm_import.bzl", "jvm_import")
 
 # managed by go/iml_to_build
 jvm_import(
