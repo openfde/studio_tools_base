@@ -195,8 +195,8 @@ java_library(
 sdk_java_binary(
     name = "avdmanager",
     default_jvm_opts = {
-        "linux": "-Dcom.android.sdkmanager.toolsdir=$APP_HOME",
-        "mac": "-Dcom.android.sdkmanager.toolsdir=$APP_HOME",
+        "linux": "-Dcom.android.sdkmanager.toolsdir=\"$APP_HOME\"",
+        "mac": "-Dcom.android.sdkmanager.toolsdir=\"$APP_HOME\"",
         "win": "\"-Dcom.android.sdkmanager.toolsdir=%~dp0\\..\"",
     },
     main_class = "com.android.sdklib.tool.AvdManagerCli",
@@ -206,8 +206,8 @@ sdk_java_binary(
 sdk_java_binary(
     name = "sdkmanager",
     default_jvm_opts = {
-        "linux": "-Dcom.android.sdklib.toolsdir=$APP_HOME",
-        "mac": "-Dcom.android.sdklib.toolsdir=$APP_HOME",
+        "linux": "-Dcom.android.sdklib.toolsdir=\"$APP_HOME\"",
+        "mac": "-Dcom.android.sdklib.toolsdir=\"$APP_HOME\"",
         "win": "\"-Dcom.android.sdklib.toolsdir=%~dp0\\..\"",
     },
     main_class = "com.android.sdklib.tool.sdkmanager.SdkManagerCli",
