@@ -727,6 +727,49 @@ class SamDetectorTest : AbstractCheckTest() {
       .expectClean()
   }
 
+  fun testDataAndInlineClassInstances() {
+    lint()
+      .files(
+        kotlin(
+          """
+            package test.pkg
+
+            import java.util.concurrent.CopyOnWriteArrayList
+
+            internal class ThingWithListeners {
+                private val listeners = CopyOnWriteArrayList<ListenerInterface>()
+                fun addListener(listener: ListenerInterface) {
+                    listeners.add(listener)
+                }
+                fun removeListener(listener: ListenerInterface) {
+                    listeners.remove(listener)
+                }
+            }
+
+            class Main {
+                fun hello() {
+                    val thing = ThingWithListeners()
+                    thing.addListener(Listener1("hi"))
+                    thing.addListener(Listener2("hi"))
+                    thing.removeListener(Listener1("hi"))
+                    thing.removeListener(Listener2("hi"))
+                }
+            }
+
+            interface ListenerInterface
+
+            data class Listener1(val data: String) : ListenerInterface
+
+            @JvmInline
+            value class Listener2(val value: String) : ListenerInterface
+            """
+        )
+          .indented()
+      )
+      .run()
+      .expectClean()
+  }
+
   fun testWear() {
     lint()
       .files(
