@@ -41,9 +41,14 @@ import java.util.Locale
 import java.util.regex.Pattern
 import org.jetbrains.kotlin.analysis.api.KaSession
 import org.jetbrains.kotlin.analysis.api.analyze
+import org.jetbrains.kotlin.analysis.api.resolution.singleConstructorCallOrNull
 import org.jetbrains.kotlin.analysis.api.resolution.singleFunctionCallOrNull
+import org.jetbrains.kotlin.analysis.api.resolution.symbol
+import org.jetbrains.kotlin.analysis.api.symbols.psiSafe
+import org.jetbrains.kotlin.analysis.api.types.KaClassType
 import org.jetbrains.kotlin.analysis.api.types.KaType
 import org.jetbrains.kotlin.psi.KtCallExpression
+import org.jetbrains.kotlin.psi.KtClass
 import org.jetbrains.uast.UBinaryExpression
 import org.jetbrains.uast.UCallExpression
 import org.jetbrains.uast.UCallableReferenceExpression
@@ -125,6 +130,9 @@ class SamDetector : Detector(), SourceCodeScanner {
       } else if (arguments.size == 1) {
         val selector = argument.findSelector()
         if (selector is UCallExpression && selector.isConstructorCall()) {
+          if (selector.callsConstructorOfDataOrValueClass()) {
+            return
+          }
           val parameter = node.getParameterForArgument(argument) ?: return
           if (!isInstanceRemoval(method, parameter)) {
             return
@@ -144,6 +152,17 @@ class SamDetector : Detector(), SourceCodeScanner {
 
   private fun PsiType?.hasLambdaType() =
     this is PsiClassType && canonicalText.startsWith("kotlin.jvm.functions.Function")
+
+  private fun UCallExpression.callsConstructorOfDataOrValueClass(): Boolean {
+    val ktCallExpression = sourcePsi as? KtCallExpression ?: return false
+    analyze(ktCallExpression) {
+      val returnType = ktCallExpression.resolveToCall()?.singleConstructorCallOrNull()
+        ?.symbol?.returnType as? KaClassType
+        ?: return false
+        val clazz = returnType.expandedSymbol?.psiSafe<KtClass>() ?: return false
+        return clazz.isData() || clazz.isValue()
+    }
+  }
 
   private fun checkRemoveLambda(
     context: JavaContext,
