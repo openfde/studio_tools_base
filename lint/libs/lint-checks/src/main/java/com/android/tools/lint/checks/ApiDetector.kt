@@ -2950,7 +2950,7 @@ class ApiDetector : ResourceXmlDetector(), SourceCodeScanner, ResourceFolderScan
                 break
               }
             } else {
-              SdkVersionInfo.getApiByBuildCode(targetApi, true)
+              SdkVersionInfo.getApiByBuildCode(targetApi, false)
             }
           return ApiConstraint.get(api)
         }
