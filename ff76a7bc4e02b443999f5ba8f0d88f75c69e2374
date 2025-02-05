@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac8ab78_793538be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2025-02-05T20:56:39Z",
+      "side": 1,
+      "message": "This isn\u0027t the place to edit Android Lint: http://b/306194463#comment4.\n\nBesides, that line is already gone: http://b/306194463#comment5.",
+      "revId": "ff76a7bc4e02b443999f5ba8f0d88f75c69e2374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
