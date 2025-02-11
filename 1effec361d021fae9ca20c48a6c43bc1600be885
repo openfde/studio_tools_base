@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538f6396_7f9002ce",
+        "filename": "zipflinger/src/com/android/zipflinger/CentralDirectoryRecord.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060367
+      },
+      "writtenOn": "2025-02-11T14:28:44Z",
+      "side": 1,
+      "message": "Optional: Add parens around the division to maximize clarity?\n\n(Long.SIZE / Byte.SIZE) * 3 ?\n\nAlso elsewhere",
+      "range": {
+        "startLine": 42,
+        "startChar": 50,
+        "endLine": 42,
+        "endChar": 71
+      },
+      "revId": "1effec361d021fae9ca20c48a6c43bc1600be885",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
