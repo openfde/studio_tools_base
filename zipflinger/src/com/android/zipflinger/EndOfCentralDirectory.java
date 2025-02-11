@@ -91,7 +91,7 @@ class EndOfCentralDirectory {
             if (buffer.position() <= 4) {
                 break;
             }
-            buffer.position(buffer.position() - Integer.BYTES - 1); // Backtrack  5 bytes.
+            buffer.position(buffer.position() - Integer.SIZE / Byte.SIZE - 1); // Backtrack  5 bytes.
         }
         return eocd;
     }
