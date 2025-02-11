@@ -37,8 +37,8 @@ class LocalFileHeader {
 
     // Zip64 extra payload must only include uncompressed size and compressed size. It differs
     // from the Central Directory Record which also features an uint64_t offset to the LFH.
-    private static final int ZIP64_PAYLOAD_SIZE = Long.BYTES * 2;
-    private static final int ZIP64_EXTRA_SIZE = Short.BYTES * 2 + ZIP64_PAYLOAD_SIZE;
+    private static final int ZIP64_PAYLOAD_SIZE = (Long.SIZE / Byte.SIZE) * 2;
+    private static final int ZIP64_EXTRA_SIZE = (Short.SIZE / Byte.SIZE) * 2 + ZIP64_PAYLOAD_SIZE;
 
     private final byte[] nameBytes;
     private final short compressionFlag;

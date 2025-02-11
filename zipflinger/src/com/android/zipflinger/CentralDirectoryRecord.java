@@ -39,8 +39,8 @@ class CentralDirectoryRecord {
     //    - uint64_t Uncompressed size.
     //    - uint64_t Compressed size.
     //    - uint64_t offset to LFH in archive.
-    private static final int ZIP64_PAYLOAD_SIZE = Long.BYTES * 3;
-    private static final int ZIP64_EXTRA_SIZE = Short.BYTES * 2 + ZIP64_PAYLOAD_SIZE;
+    private static final int ZIP64_PAYLOAD_SIZE = (Long.SIZE / Byte.SIZE) * 3;
+    private static final int ZIP64_EXTRA_SIZE = (Short.SIZE / Byte.SIZE) * 2 + ZIP64_PAYLOAD_SIZE;
 
     private final byte[] nameBytes;
     private final int crc;
