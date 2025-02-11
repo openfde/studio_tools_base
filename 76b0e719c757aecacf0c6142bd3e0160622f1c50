@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f593e75_d9cb7b3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2025-02-11T18:02:41Z",
+      "side": 1,
+      "message": "What version of Java does Android need? e.g.: Long.BYTES is available since Java 8.",
+      "revId": "76b0e719c757aecacf0c6142bd3e0160622f1c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
