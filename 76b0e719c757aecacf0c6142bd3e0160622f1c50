@@ -16,6 +16,23 @@
       "message": "What version of Java does Android need? e.g.: Long.BYTES is available since Java 8.",
       "revId": "76b0e719c757aecacf0c6142bd3e0160622f1c50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6ca89b_ffe55229",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2025-02-11T18:18:18Z",
+      "side": 1,
+      "message": "I also have more questions :P !\n\n1. Are you sure this is the right branch? Usually we put our changes in ag on `studio-main` branch. Are you creating a fork?\n\n2. What is zipfligner going to be used for on Android? Any documentation I can read?",
+      "revId": "76b0e719c757aecacf0c6142bd3e0160622f1c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
