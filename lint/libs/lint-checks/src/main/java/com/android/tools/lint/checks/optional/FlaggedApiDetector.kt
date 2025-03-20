@@ -227,7 +227,7 @@ class FlaggedApiDetector : Detector(), SourceCodeScanner {
       val separator = flag.lastIndexOf('.')
       if (separator != -1) {
         val packageName = flag.substring(0, separator)
-        val className = "$packageName.Flags"
+        val className = "$packageName.ExportedFlags"
         val cls = context.evaluator.findClass(className) ?: return null
         val fieldName = "FLAG_" + flag.substring(separator + 1).uppercase()
         return cls.findFieldByName(fieldName, true)
