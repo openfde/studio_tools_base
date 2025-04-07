@@ -1,3 +1,0 @@
-include ':app'
-include ':supportlib'
-project(':supportlib').projectDir = new File('../../supportlib')
