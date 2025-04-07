@@ -1,2 +1,0 @@
-It contains two lines.
-This is the second line.

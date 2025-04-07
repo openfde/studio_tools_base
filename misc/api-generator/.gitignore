@@ -1,8 +1,0 @@
-/bin
-/build
-output.xml
-.gradle
-build
-.idea
-api-generator.iml
-run.sh

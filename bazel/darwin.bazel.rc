@@ -1,8 +1,0 @@
-import %workspace%/tools/base/bazel/common.bazel.rc
-
-build:release --copt=-fdata-sections
-build:release --cxxopt=-fdata-sections
-build:release --copt=-fno-exceptions
-build:release --cxxopt=-fno-exceptions
-build:release --copt=-ffunction-sections
-build:release --cxxopt=-ffunction-sections
