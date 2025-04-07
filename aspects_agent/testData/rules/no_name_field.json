@@ -1,8 +1,0 @@
-{
-  "annotations":[
-    {
-      "aspect":"#warn3",
-      "group":"threading"
-    }
-  ]
-}

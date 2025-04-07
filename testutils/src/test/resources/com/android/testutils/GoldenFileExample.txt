@@ -1,3 +1,0 @@
-Expected golden file content
-on multiple
-lines

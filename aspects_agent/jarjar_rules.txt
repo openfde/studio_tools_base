@@ -1,1 +1,0 @@
-rule org.objectweb.** com.android.tools.checker.org.objectweb.@1

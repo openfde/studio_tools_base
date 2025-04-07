@@ -1,6 +1,0 @@
-include 'app'
-
-file('modules').listFiles().each { File moduleDir ->
-    includeBuild moduleDir
-}
-
