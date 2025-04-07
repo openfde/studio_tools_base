@@ -1,3 +1,0 @@
-original.package.OriginalName -> com.example.helloworld.HelloWorld:
-    java.util.concurrent.atomic.AtomicIntegerFieldUpdater originalField -> hw
-    1:1:void originalMethod(android.os.Bundle):0 -> onCreate
