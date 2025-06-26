@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "079b283e_f509d28a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2025-06-26T23:03:09Z",
+      "side": 1,
+      "message": "It is handled more generally (in the sense that `UField` is a subtype of `UVariable`) like this: https://cs.android.com/android-studio/platform/tools/base/+/d238ee1264a100258e922506bf66a66adefa2ef1",
+      "revId": "653b926db3c05022ce08a68b2f956986e11a9917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
