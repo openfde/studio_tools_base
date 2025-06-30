@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490e3277_6f36cfc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1075064
+      },
+      "writtenOn": "2025-06-30T08:03:48Z",
+      "side": 1,
+      "message": "Fixed in a more general way: https://cs.android.com/android-studio/platform/tools/base/+/13dc5ecdb8d1455be0733cfbf11efca00ebe9f29",
+      "revId": "80c6b92496daac77d05288b77f4b579a42409a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
