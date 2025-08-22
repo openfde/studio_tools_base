@@ -395,6 +395,7 @@ open class BuiltinIssueRegistry : IssueRegistry() {
           RecyclerViewDetector.CLEAR_ALL_DATA,
           RecyclerViewDetector.DATA_BINDER,
           RecyclerViewDetector.FIXED_POSITION,
+          RedundantActivityAliasAttributesDetector.ISSUE,
           RegisterReceiverFlagDetector.RECEIVER_EXPORTED_FLAG,
           RegistrationDetector.ISSUE,
           RelativeOverlapDetector.ISSUE,
