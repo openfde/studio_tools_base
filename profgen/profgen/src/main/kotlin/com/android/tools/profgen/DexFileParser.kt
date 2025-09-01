@@ -57,8 +57,8 @@ internal fun parseDexFile(
     parseStringPool(buffer, dexFile)
     parseTypePool(buffer, dexFile)
     parsePrototypePool(buffer, dexFile)
-    parseMethodPool(buffer, dexFile)
     parseClassDefinitionPool(buffer, dexFile)
+    parseMethodPool(buffer, dexFile)
     return dexFile
 }
 
@@ -149,6 +149,9 @@ private fun parseMethodPool(buffer: ByteBuffer, dexFile: DexFile) {
         val classIdx = buffer.ushort
         val protoIdx = buffer.ushort
         val nameIdx = buffer.int
+        if (!dexFile.definedMethods.contains(classIdx)) {
+            continue
+        }
         val clsType = dexFile.typePool[classIdx]
         val proto = dexFile.protoPool[protoIdx]
         val name = dexFile.stringPool[nameIdx]
@@ -156,19 +159,57 @@ private fun parseMethodPool(buffer: ByteBuffer, dexFile: DexFile) {
     }
 }
 
+
 private fun parseClassDefinitionPool(buffer: ByteBuffer, dexFile: DexFile) {
-    buffer.position(dexFile.header.classDefs.offset)
-    for (i in 0 until dexFile.header.classDefs.size) {
-        val classIdx = buffer.int
-        /* val accessFlags = */buffer.int
-        /* val superClassIdx = */buffer.int
-        /* val interfacesOffs = */buffer.int
-        /* val sourceFileIdx = */buffer.int
-        /* val annotationsOffset = */buffer.int
-        /* val classDataOffset = */buffer.int
-        /* val staticValuesOffset = */buffer.int
-        dexFile.classDefPool[i] = classIdx
+  buffer.position(dexFile.header.classDefs.offset)
+  for (i in 0 until dexFile.header.classDefs.size) {
+    val classIdx = buffer.int
+    /* val accessFlags = */ buffer.int
+    /* val superClassIdx = */ buffer.int
+    /* val interfacesOffs = */ buffer.int
+    /* val sourceFileIdx = */ buffer.int
+    /* val annotationsOffset = */ buffer.int
+    val classDataOffset = buffer.int
+    /* val staticValuesOffset = */ buffer.int
+    dexFile.classDefPool[i] = classIdx
+
+    if (classDataOffset == 0) {
+      continue
     }
+
+    val oldPosition = buffer.position()
+    buffer.position(classDataOffset)
+    val staticFieldsSize = buffer.leb128
+    val instanceFieldsSize = buffer.leb128
+    val directMethodsSize = buffer.leb128
+    val virtualMethodsSize = buffer.leb128
+    for (i in 0 until staticFieldsSize) {
+      /* val field_idx = */ buffer.leb128
+      /* val access_flags = */ buffer.leb128
+    }
+    for (i in 0 until instanceFieldsSize) {
+      /* val field_idx = */ buffer.leb128
+      /* val access_flags = */ buffer.leb128
+    }
+    var accumulator = 0
+    for (i in 0 until directMethodsSize) {
+      val methodIdx = buffer.leb128
+      accumulator += methodIdx
+      dexFile.definedMethods.add(accumulator)
+      /* val access_flags = */ buffer.leb128
+      /* val code_off = */ buffer.leb128
+    }
+    accumulator = 0
+    for (i in 0 until virtualMethodsSize) {
+      val methodIdx = buffer.leb128
+      accumulator += methodIdx
+      dexFile.definedMethods.add(accumulator)
+      /* val access_flags = */ buffer.leb128
+      /* val code_off = */ buffer.leb128
+    }
+
+    buffer.position(oldPosition)
+  }
 }
 
 private fun getTypeList(dexFile: DexFile, buffer: ByteBuffer, offset: Long): List<String> {
