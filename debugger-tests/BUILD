@@ -14,7 +14,7 @@ kotlin_library(
     tags = tags,
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "@maven//:org.jetbrains.kotlinx.kotlinx-cli-jvm",
     ],
 )
@@ -132,8 +132,8 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "//tools/adt/idea/.idea/libraries:junit4[test]",
         "//tools/adt/idea/as-driver:as-driver.utils[test]",
         "//tools/adt/idea/.idea/libraries:jetbrains.kotlinx.coroutines.test[test]",

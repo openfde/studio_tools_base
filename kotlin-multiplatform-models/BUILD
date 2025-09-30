@@ -33,9 +33,9 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/adt/idea/.idea/libraries:studio-proto",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "//tools/adt/idea/.idea/libraries:kotlin-multiplatform-android-models-proto",
     ],
 )

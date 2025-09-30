@@ -28,6 +28,6 @@ iml_module(
     deps = [
         "//tools/adt/idea/.idea/libraries:junit4",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )

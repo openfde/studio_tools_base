@@ -57,7 +57,7 @@ iml_module(
         "//tools/adt/idea/.idea/libraries:asm-tools",
         "//tools/base/annotations:studio.android.sdktools.android-annotations",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/adt/idea/.idea/libraries:truth[test]",
         "//tools/adt/idea/.idea/libraries:mockito[test]",
         "//tools/adt/idea/.idea/libraries:junit4[test]",

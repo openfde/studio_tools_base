@@ -25,6 +25,6 @@ iml_module(
         "//tools/adt/idea/.idea/libraries:mockito[test]",
         "//tools/adt/idea/.idea/libraries:truth[test]",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )

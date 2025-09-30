@@ -29,7 +29,7 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/annotations:studio.android.sdktools.android-annotations",
         "//tools/base/common:studio.android.sdktools.common",
         "//tools/base/sdk-common:studio.android.sdktools.sdk-common",
@@ -90,8 +90,8 @@ iml_module(
     deps = [
         "//tools/adt/idea/.idea/libraries:asm-tools",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "//tools/base/annotations:studio.android.sdktools.android-annotations",
         "//tools/base/lint:studio.android.sdktools.lint-model",
         "//tools/base/common:studio.android.sdktools.common",
@@ -169,8 +169,8 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "//tools/base/lint:studio.android.sdktools.lint-api",
         "//tools/base/lint:liblint-checks-proto",
     ],
@@ -359,9 +359,9 @@ iml_module(
     deps = [
         "//tools/base/lint:studio.android.sdktools.lint-api",
         "//tools/base/lint:studio.android.sdktools.lint-checks",
-        "@intellij//:org.jetbrains.kotlin",
+        "//prebuilts/studio/intellij-sdk:org.jetbrains.kotlin",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )
 
@@ -383,7 +383,7 @@ iml_module(
         "//tools/base/lint/libs/lint-tests:studio.android.sdktools.lint.testinfrastructure[test]",
         "//tools/base/lint:studio.android.sdktools.lint.studio-checks[test]",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )
 
@@ -403,7 +403,7 @@ iml_module(
         "//tools/base/lint:studio.android.sdktools.lint-checks",
         "//tools/base/lint/libs/lint-typedef-remover:studio.android.sdktools.lint.typedef-remover",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )
 
@@ -428,7 +428,7 @@ iml_module(
         "//tools/base/lint/libs/lint-tests:studio.android.sdktools.lint.testinfrastructure[test]",
         "//tools/base/common:studio.android.sdktools.common[test]",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/adt/idea/.idea/libraries:truth[test]",
     ],
 )

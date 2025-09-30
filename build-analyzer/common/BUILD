@@ -13,7 +13,7 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/common:studio.android.sdktools.common",
         "//tools/base/sdk-common:studio.android.sdktools.sdk-common",
         "//tools/adt/idea/.idea/libraries:junit4[test]",

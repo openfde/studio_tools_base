@@ -25,7 +25,7 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/annotations:studio.android.sdktools.android-annotations",
     ],
 )
@@ -101,7 +101,7 @@ iml_module(
     deps = [
         "//tools/adt/idea/.idea/libraries:junit4[test]",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/annotations:studio.android.sdktools.android-annotations[test]",
         "//tools/base/build-system/builder-model:studio.android.sdktools.builder-model[test]",
         "//tools/base/testutils:studio.android.sdktools.testutils[test]",

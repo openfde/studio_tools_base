@@ -40,7 +40,7 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "//tools/adt/idea/.idea/libraries:agp-version",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "@intellij//:intellij-sdk",
         "//tools/adt/idea/.idea/libraries:junit4[test]",
         "//tools/adt/idea/.idea/libraries:guava-testlib[test]",

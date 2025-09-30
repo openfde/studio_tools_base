@@ -19,7 +19,7 @@ iml_module(
     # do not sort: must match IML order
     deps = [
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/adb-proxy:adb_proxy_proto",
         "//tools/base/adblib:studio.android.sdktools.adblib",
         "//tools/adt/idea/.idea/libraries:junit4[test]",

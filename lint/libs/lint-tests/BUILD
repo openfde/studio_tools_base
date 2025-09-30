@@ -64,7 +64,7 @@ iml_module(
         "//tools/base/lint/cli:studio.android.sdktools.lint.cli",
         "//tools/adt/idea/.idea/libraries:junit4",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
     ],
 )
 
@@ -98,7 +98,7 @@ iml_module(
         "//tools/base/common:studio.android.sdktools.common.testfixtures[test]",
         "//tools/base/lint:studio.android.sdktools.lint-checks[test]",
         "@intellij//:intellij-sdk[test]",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/base/lint/libs/lint-tests:liblint-checks-proto",
         "//tools/adt/idea/.idea/libraries:kotlin-test[test]",
         "//tools/adt/idea/.idea/libraries:agp-version[test]",

@@ -38,7 +38,7 @@ iml_module(
         "//tools/base/testutils:studio.android.sdktools.testutils[test]",
         "//tools/adt/idea/.idea/libraries:aapt-proto",
         "@intellij//:intellij-sdk",
-        "@intellij//:com.intellij.java",
+        "//prebuilts/studio/intellij-sdk:com.intellij.java",
         "//tools/adt/idea/.idea/libraries:truth[test]",
         "//tools/base/environment-services:studio.intellij.android.environment-services",
     ],
