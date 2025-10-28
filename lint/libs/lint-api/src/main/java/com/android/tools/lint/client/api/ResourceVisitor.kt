@@ -133,7 +133,7 @@ internal class ResourceVisitor(
           // ok
         } else if (prev == '.' && c.isJavaIdentifierStart()) {
           // ok
-        } else if (c.isJavaIdentifierPart()) {
+        } else if (prev != '.' && c.isJavaIdentifierPart()) {
           // ok
         } else {
           return false
