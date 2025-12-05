@@ -44,22 +44,6 @@ check_environment() {
     fi
 }
 
-# 应用补丁
-apply_studio_patches() {
-    log_info "应用 Android Studio 补丁..."
-    
-    cd "$STUDIO_DIR"
-    if [ ! -f "tools/replace_intellij.sh" ]; then
-        cd "$STUDIO_DIR/android_studio-patches/studio-$STUDIO_VERSION-patch"
-        chmod +x apply_patch.sh
-        ./apply_patch.sh "$STUDIO_DIR"
-
-        log_success "Android Studio 补丁合并成功"
-    else
-        log_success "Android Studio 补丁已合并"
-    fi
-}
-
 # 编译 Android Studio
 build_android_studio() {
     log_info "开始编译 Android Studio..."
@@ -76,16 +60,15 @@ build_android_studio() {
         mkdir -p $STUDIO_DIR/prebuilts/studio/intellij-sdk/AI
         tools/adt/idea/studio/update_sdk.py --path tools/idea/out/studio/dist
 
-        cp $STUDIO_DIR/android_studio-patches/studio-2024.3.2-patch/prebuilts/studio/intellij-sdk/BUILD \
+        cp $STUDIO_DIR/tools/base/bazel/intellij-sdk/BUILD \
             $STUDIO_DIR/prebuilts/studio/intellij-sdk/
     fi
-
     tools/base/bazel/bazel build tools/adt/idea/android:artifacts
-    
+
     # 第三步：编译 Android Studio插件
     log_info "步骤 3: 编译 Android Studio插件"
     tools/base/bazel/bazel build tools/adt/idea/studio:android-studio
-    
+
     log_success "Android Studio 编译完成！"
 }
 
@@ -96,8 +79,6 @@ main() {
 
     # 执行各个步骤
     check_environment
-
-    apply_studio_patches
 
     build_android_studio
 
